@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <div class="col">
+    <div class="row my-3">
+      <input class="form-control" type="text" placeholder="Enter Location" #input>
+    </div>
+    <div class="row my-3">
+      <button class="btn btn-primary" (click)='showWeatherReport(input.value)'>Enter</button>
+    </div>
+  </div>
+  <div *ngIf="displayCurrent && displayFiveElements" class="weather-forecast">
+    <div class="location">{{location}}</div>
+    <div class="date">{{currentDate |date:'EEEE,LLLL dd'}}</div>
+    <div class="desc">Overcast</div>
+    <div class="current">
+      <div class="visual">
+        <div class="icon cloudy">
+          <img src="http://openweathermap.org/img/w/{{report[0].weather[0].icon}}.png">
+        </div>
+        <div class="temp">{{currentTemp}}</div>
+        <div class="scale">°C</div>
+      </div>
+      <div class="description">
+
+        <div class="humidity">{{currentHumidity}}</div>
+        <div class="wind">{{currentWindSpeed}}</div>
+
+      </div>
+    </div>
+
+    <div *ngIf="displayFiveElements">
+      <div *ngFor="let item of report">
+        <app-weather-item [item]='item'></app-weather-item>
+      </div>
+    </div>
+  </div>
+</div>

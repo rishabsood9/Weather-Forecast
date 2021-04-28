@@ -1,0 +1,16 @@
+<div class="weather-forecast" role="main">
+  <div class="five-day">
+    <div class="five-day-fc">
+      <div class="date">{{item.dt_txt |date:'EEEE'}}</div>
+      <div class={{item.weather[0].description}}>
+        <img src="http://openweathermap.org/img/w/{{item.weather[0].icon}}.png">
+      </div>
+      <div class="five-day-temp">
+
+        <div class="temp-high">{{item.main.celMinTemp}} °C</div>
+        <div class="temp-low">{{item.main.celMaxTemp}} °C</div>
+      </div>
+      <div>Status: {{item.weather[0].description}}</div>
+    </div>
+  </div>
+</div>
